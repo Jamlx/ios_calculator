@@ -23,28 +23,32 @@ class ViewController: UIViewController {
     var midOp: Int = 0
     
     @IBAction func btnNumberClick(_ sender: UIButton) {
-        if(lblOutput.text=="0" || midOp==3){
-            val1 = Double(sender.currentTitle!)!
-            lblOutput.text = sender.currentTitle!
-            midOp=0        }else{
-            if (sender.currentTitle != nil && lblOutput.text != nil){
-                if(midOp==0){
-                    val1 = Double(lblOutput.text! + sender.currentTitle!)!
-                    lblOutput.text = lblOutput.text! + sender.currentTitle!
-                }else if(midOp==1){
-                    val2 = Double(sender.currentTitle!)!
-                    lblOutput.text = sender.currentTitle!
-                    midOp=2
-                }else if(midOp==2){
-                    val2 = Double(lblOutput.text! + sender.currentTitle!)!
-                    lblOutput.text = lblOutput.text! + sender.currentTitle!
-                }
+        if(sender.currentTitle != nil){
+            if(sender.currentTitle == "." && lblOutput.text!.contains(".")){
                 
+            }else if(lblOutput.text=="0" || midOp==3){
+                val1 = Double(sender.currentTitle!)!
+                lblOutput.text = sender.currentTitle!
+                midOp=0        }else{
+                if (sender.currentTitle != nil && lblOutput.text != nil){
+                    if(midOp==0){
+                        val1 = Double(lblOutput.text! + sender.currentTitle!)!
+                        lblOutput.text = lblOutput.text! + sender.currentTitle!
+                    }else if(midOp==1){
+                        val2 = Double(sender.currentTitle!)!
+                        lblOutput.text = sender.currentTitle!
+                        midOp=2
+                    }else if(midOp==2){
+                        val2 = Double(lblOutput.text! + sender.currentTitle!)!
+                        lblOutput.text = lblOutput.text! + sender.currentTitle!
+                    }
+                    
+                }
             }
-        }
 
-        if (sender.currentTitle != nil){
-            print(sender.currentTitle! + " btn clicked")
+            if (sender.currentTitle != nil){
+                print(sender.currentTitle! + " btn clicked")
+            }
         }
     }
     
@@ -73,8 +77,10 @@ class ViewController: UIViewController {
         if(lblOutput.text != nil){
             let out = val1/100.0
             lblOutput.text = String(out)
+            midOp = 3
+            curOp = "none"
             val1 = out
-        }
+            val2 = 0        }
     }
     
     
@@ -82,7 +88,10 @@ class ViewController: UIViewController {
         if(lblOutput.text != nil){
             let out = val1.squareRoot()
             lblOutput.text = String(out)
+            midOp = 3
+            curOp = "none"
             val1 = out
+            val2 = 0
         }
     }
     
@@ -90,7 +99,10 @@ class ViewController: UIViewController {
         if(lblOutput.text != nil){
             let out = pow(val1, 2)
             lblOutput.text = String(out)
+            midOp = 3
+            curOp = "none"
             val1 = out
+            val2 = 0
         }
     }
     
@@ -98,7 +110,10 @@ class ViewController: UIViewController {
         if(lblOutput.text != nil){
             let out = pow(val1, 3)
             lblOutput.text = String(out)
+            midOp = 3
+            curOp = "none"
             val1 = out
+            val2 = 0
         }
     }
     
@@ -106,7 +121,10 @@ class ViewController: UIViewController {
         if(lblOutput.text != nil){
             let out = log10(val1)
             lblOutput.text = String(out)
+            midOp = 3
+            curOp = "none"
             val1 = out
+            val2 = 0
         }
     }
     
