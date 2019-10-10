@@ -95,38 +95,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func btnSquareClick(_ sender: UIButton) {
-        if(lblOutput.text != nil){
-            let out = pow(val1, 2)
-            lblOutput.text = String(out)
-            midOp = 3
-            curOp = "none"
-            val1 = out
-            val2 = 0
-        }
-    }
-    
-    @IBAction func btnCubeClick(_ sender: UIButton) {
-        if(lblOutput.text != nil){
-            let out = pow(val1, 3)
-            lblOutput.text = String(out)
-            midOp = 3
-            curOp = "none"
-            val1 = out
-            val2 = 0
-        }
-    }
-    
-    @IBAction func btnLogClick(_ sender: UIButton) {
-        if(lblOutput.text != nil){
-            let out = log10(val1)
-            lblOutput.text = String(out)
-            midOp = 3
-            curOp = "none"
-            val1 = out
-            val2 = 0
-        }
-    }
     
     
     @IBAction func btnDivideClick(_ sender: UIButton) {
@@ -164,8 +132,6 @@ class ViewController: UIViewController {
                 out = val1*val2
             }else if(curOp == "div"){
                 out = val1/val2
-            }else if(curOp == "exp"){
-                out = pow(val1, val2)
             }
             lblOutput.text = String(out)
             midOp = 3
